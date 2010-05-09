@@ -2,7 +2,7 @@
 <launchConfiguration type="scala.application">
 <stringAttribute key="bad_container_name" value="/ShapesScalaProject/test."/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/ShapesScalaProject/lib/scalatest-1.0.jar"/>
+<listEntry value="/ShapesScalaProject/lib/scalatest-1.0.1-for-scala-2.8.0.RC1-SNAPSHOT.jar"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
