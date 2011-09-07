@@ -1,10 +1,13 @@
 package edu.luc.cs.laufer.cs473.shapes
 
+import org.junit.runner.RunWith
+import org.scalatest.junit.JUnitRunner
 import org.scalatest.FunSuite
 
 import BoundingBox._
 import TestFixtures._
 
+@RunWith(classOf[JUnitRunner])
 class TestBoundingBox extends FunSuite {
 
   def testBoundingBox(description: String, s: Shape, x: Int, y: Int, width: Int, height: Int) = {
