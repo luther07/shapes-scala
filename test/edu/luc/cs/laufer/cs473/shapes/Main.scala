@@ -1,10 +1,10 @@
 package edu.luc.cs.laufer.cs473.shapes
 
-import BoundingBox._
+import BoundingBox.boundingBox
+import TestFixtures.simpleLocation
 
 object Main {
   def main(args : Array[String]) : Unit = {
-    val s = Location(3, 4, Rectangle(20, 40))
-    println(boundingBox(s))
+    println(boundingBox(simpleLocation))
   }
 }
