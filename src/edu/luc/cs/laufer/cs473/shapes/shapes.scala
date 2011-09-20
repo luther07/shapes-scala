@@ -18,5 +18,7 @@ case class Ellipse(foci_distance_sum: Int, foci_line_length: Int) extends Shape 
 
 case class Group(shape1: Shape, shape2: Shape) extends Shape
 
+case class Group(location1: Location, location2: Location) extends Shape
+
 // TODO add missing case classes (see test fixtures)
 // TODO must include validity checking for constructor arguments
