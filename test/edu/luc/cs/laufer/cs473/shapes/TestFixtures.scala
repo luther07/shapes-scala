@@ -17,15 +17,15 @@ object TestFixtures {
 	Location(400, 300, Rectangle(100, 50))
   )
 
-//  val complexGroup = Location(50, 100, Group(
-//	Ellipse(20, 40),
-//	Location(150, 50, Group(
-//	  Rectangle(50, 30),
-//	  Rectangle(300, 60),
-//	  Location(100, 200,
-//	    Ellipse(50, 30)
-//	  )
-//	)),
-//    Rectangle(100, 200)
-//  ))
+  val complexGroup = Location(50, 100, Group(
+	Ellipse(20, 40),
+	Location(150, 50, Group(
+	  Rectangle(50, 30),
+	  Rectangle(300, 60),
+	  Location(100, 200,
+	    Ellipse(50, 30)
+	  )
+	)),
+    Rectangle(100, 200)
+))
 }

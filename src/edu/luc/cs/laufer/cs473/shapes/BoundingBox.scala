@@ -8,6 +8,10 @@ object BoundingBox {
       val b = boundingBox(shape)
       Location(x + b.x, y + b.y, b.shape)
     }
+    case Ellipse(height, width) =>
+      new Location(0, 0, new Rectangle(height * 2, width * 2))
+//  case Group()
+
     // TODO add missing cases (see test fixtures)
     // must use map and reduceLeft (or foldLeft) for Group (no mutable variables!)
   }

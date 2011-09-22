@@ -2,7 +2,11 @@ package edu.luc.cs.laufer.cs473.shapes
 
 abstract class Shape
 
-case class Rectangle(width: Int, height: Int) extends Shape
+case class Rectangle(width: Int, height: Int) extends Shape {
+  if (!((width > 0) && (height > 0))) {
+    throw new IllegalArgumentException("invalid Rectangle: length or height is not a postive integer")
+  }
+}
 
 case class Location(x: Int, y: Int, shape: Shape) extends Shape {
   if (shape == null) {
@@ -10,15 +14,17 @@ case class Location(x: Int, y: Int, shape: Shape) extends Shape {
   }
 }
 
-case class Ellipse(foci_distance_sum: Int, foci_line_length: Int) extends Shape {
-  if (foci_distance_sum < foci_line_length) {
-    throw new IllegalArgumentException("invalid ellipse: foci_distance_sum must be greater than foci_line_length")
+case class Ellipse(width: Int, height: Int) extends Shape {
+  if (!(height > 0)) {
+    throw new IllegalArgumentException("invalid ellipse: height must be greater than zero")
   }
+  if (!(width > 0)) {
+    throw new IllegalArgumentException("invalid ellipse: width must be greater than zero")
+  }  
 }
 
 case class Group(multishapes: Shape*) extends Shape
-
-//case class Group(location1: Location, location2: Location) extends Shape
+// TODO validity checking for Group!!!!!!!!!
 
 // TODO add missing case classes (see test fixtures)
 // TODO must include validity checking for constructor arguments
