@@ -9,8 +9,10 @@ object BoundingBox {
       Location(x + b.x, y + b.y, b.shape)
     }
     case Ellipse(height, width) =>
-      new Location(0, 0, new Rectangle(height * 2, width * 2))
-//  case Group()
+      new Location(-(height), -(width), new Rectangle(height * 2, width * 2))
+    case Group(multishapes*) => multishapes.map((s:Shape) => boundingBox(s)).foldLeft(Location(0, 0, Rectangle(1, 1))) {
+               
+    }
 
     // TODO add missing cases (see test fixtures)
     // must use map and reduceLeft (or foldLeft) for Group (no mutable variables!)
