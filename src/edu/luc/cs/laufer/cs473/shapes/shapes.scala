@@ -23,7 +23,11 @@ case class Ellipse(width: Int, height: Int) extends Shape {
   }  
 }
 
-case class Group(multishapes: Shape*) extends Shape
+case class Group(multishapes: Shape*) extends Shape {
+  if(!(multishapes.size > 1)) {
+    throw new IllegalArgumentException("invalid group: must have more than one shape")
+  }
+}
 // TODO validity checking for Group!!!!!!!!!
 
 // TODO add missing case classes (see test fixtures)
