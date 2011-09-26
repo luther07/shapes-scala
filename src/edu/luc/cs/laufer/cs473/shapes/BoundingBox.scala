@@ -11,11 +11,10 @@ object BoundingBox {
     case Ellipse(width, height) =>
       Location(-(width), -(height), new Rectangle(width * 2, height * 2))
     case Group(multishapes @ _*) => {
-      multishapes match {
-        case Group(x, _*) => 
-          
+      Group.unapplySeq(multishapes).get
 
     }
+
     // TODO add missing cases (see test fixtures)
     // must use map and reduceLeft (or foldLeft) for Group (no mutable variables!)
   }
