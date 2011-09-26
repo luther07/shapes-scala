@@ -11,8 +11,7 @@ object BoundingBox {
     case Ellipse(width, height) =>
       Location(-(width), -(height), new Rectangle(width * 2, height * 2))
     case Group(multishapes @ _*) => {
-      Group.unapplySeq(multishapes).get
-
+      val extractor = Group.unapplySeq(s).get
     }
 
     // TODO add missing cases (see test fixtures)
