@@ -11,7 +11,16 @@ object BoundingBox {
     case Ellipse(width, height) =>
       Location(-(width), -(height), new Rectangle(width * 2, height * 2))
     case Group(multishapes @ _*) => {
-      val extractor = Group.unapplySeq(s).get
+      val b = List()
+      for (elem <- multishapes) (boundingBox(elem))::b
+      //for (elem <- multishapes) println(boundingBox(elem))
+      //for (elem <- multishapes) println(elem.getClass())
+      //for (elem <- multishapes) println(elem)
+      //listShapes =new List()
+      //multishapes.foreach(x => )
+      // val extractor = Group.unapplySeq( multishapes )
+      println(b)
+      Location(0,0,Rectangle(1,1))
     }
 
     // TODO add missing cases (see test fixtures)
