@@ -10,16 +10,21 @@ object BoundingBox {
     }
     case Ellipse(width, height) =>
       Location(-(width), -(height), new Rectangle(width * 2, height * 2))
-    case Group(multishapes @ _*) => {
-      val b = List()
-      for (elem <- multishapes) (boundingBox(elem))::b
-      //for (elem <- multishapes) println(boundingBox(elem))
+ case Group(multishapes @ _*) => {
+      val b = multishapes.toList map (boundingBox(_))
+      for (elem <- b) println(elem)
+      println("\n")
+      //for (elem <- multishapes) {}
+      //val b = List()
+      //for (elem <- multishapes) ((boundingBox(elem))::b)
+      //for (elem <- multishapes) println(boundingBox(elem)+"\n")
       //for (elem <- multishapes) println(elem.getClass())
+      //println("\n")
       //for (elem <- multishapes) println(elem)
       //listShapes =new List()
       //multishapes.foreach(x => )
       // val extractor = Group.unapplySeq( multishapes )
-      println(b)
+      //println(b)
       Location(0,0,Rectangle(1,1))
     }
 
