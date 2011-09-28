@@ -10,33 +10,19 @@ object BoundingBox {
     }
     case Ellipse(width, height) =>
       Location(-(width), -(height), new Rectangle(width * 2, height * 2))
-  case Group(multishapes @ _*) => {
-      val b = multishapes.toList map (boundingBox(_))
-      for (elem <- b) println(elem)
-      println("\n")
-      val xs = b map (_.x)
-      val finalx = xs.reduceLeft((x1,x2) => x1.min(x2))
-      println(finalx)
-      val ys = b map (_.y)
-      val finaly = ys.reduceLeft((y1,y2) => y1.min(y2))
-      println(finaly)
-      val shapeses = b map (_.shape)
-      //val finalshape = shapeses.reduceLeftOption((s1,s2) => s1.)
-      //val finalshape = shapeses.reduceLeft((s1,s2) => Rectangle(a,b))
-      //val stuff = b.reduceLeft((sh1,sh2) => Location(finalx, finaly, Rectangle(sh1.)))
-      //for (elem <- b) println(elem)
-      //println("\n")
-      //for (elem <- multishapes) {}
-      //val b = List()
-      //for (elem <- multishapes) ((boundingBox(elem))::b)
-      //for (elem <- multishapes) println(boundingBox(elem)+"\n")
-      //for (elem <- multishapes) println(elem.getClass())
-      //println("\n")
-      //for (elem <- multishapes) println(elem)
-      //listShapes =new List()
-      //multishapes.foreach(x => )
-      // val extractor = Group.unapplySeq( multishapes )
-      //println(b)
+    case Group(multishapes @ _*) => {
+      val b = multishapes.toList map (boundingBox(_)) //map Group items to BB
+      
+      val xs = b map (_.x) //map BB's to their x val's
+      val finalx = xs.reduceLeft((x1,x2) => x1.min(x2)) //reduce x val's to get min
+      
+      val ys = b map (_.y) //map BB's to their y val's
+      val finaly = ys.reduceLeft((y1,y2) => y1.min(y2)) //reduce y val's to get min
+      
+      val shapeses = b map (_.shape) //map BB's to their shapes
+      for (elem <- shapeses) elem match{
+        case (edu.luc.cs.laufer.cs473.shapes.Rectangle(width,height)) => println(width) }
+
       Location(0,0,Rectangle(1,1))
     }
 
