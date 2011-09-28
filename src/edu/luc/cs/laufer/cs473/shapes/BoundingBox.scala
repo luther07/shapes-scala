@@ -10,10 +10,22 @@ object BoundingBox {
     }
     case Ellipse(width, height) =>
       Location(-(width), -(height), new Rectangle(width * 2, height * 2))
- case Group(multishapes @ _*) => {
+  case Group(multishapes @ _*) => {
       val b = multishapes.toList map (boundingBox(_))
       for (elem <- b) println(elem)
       println("\n")
+      val xs = b map (_.x)
+      val finalx = xs.reduceLeft((x1,x2) => x1.min(x2))
+      println(finalx)
+      val ys = b map (_.y)
+      val finaly = ys.reduceLeft((y1,y2) => y1.min(y2))
+      println(finaly)
+      val shapeses = b map (_.shape)
+      //val finalshape = shapeses.reduceLeftOption((s1,s2) => s1.)
+      //val finalshape = shapeses.reduceLeft((s1,s2) => Rectangle(a,b))
+      //val stuff = b.reduceLeft((sh1,sh2) => Location(finalx, finaly, Rectangle(sh1.)))
+      //for (elem <- b) println(elem)
+      //println("\n")
       //for (elem <- multishapes) {}
       //val b = List()
       //for (elem <- multishapes) ((boundingBox(elem))::b)
