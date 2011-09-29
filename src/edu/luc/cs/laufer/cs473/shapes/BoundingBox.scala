@@ -11,14 +11,14 @@ object BoundingBox {
     case Ellipse(width, height) =>
       Location(-(width), -(height), new Rectangle(width * 2, height * 2))
     case Group(multishapes @ _*) => {
-      val b = multishapes.toList.map (boundingBox(_)) //map Group items to BB
+      val boxes = multishapes.toList.map (boundingBox(_)) //map Group items to BB
       
       
-      val xs = b.map(_.x).reduceLeft((x1,x2) => x1.min(x2)) //map and reduce x val's to get min
+      val minx = boxes.map(_.x).reduceLeft((x1,x2) => x1.min(x2)) //map and reduce x val's to get min
       
-      val ys = b.map(_.y).reduceLeft((y1,y2) => y1.min(y2)) //map and reduce y val's to get min
+      val miny = b.oxesmap(_.y).reduceLeft((y1,y2) => y1.min(y2)) //map and reduce y val's to get min
       
-      val shapeses = b.map(_.shape) //map BB's to their shapes
+      val shapeses = boxes.map(_.shape) //map BB's to their shapes
       
       //need recursive function or reduceLeft function to reduce shapeses to a single boundingBox
       //val mysolution = shapeses.reduceLeft((rect1, rect2) => {
