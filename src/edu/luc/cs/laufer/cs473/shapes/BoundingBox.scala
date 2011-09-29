@@ -24,12 +24,9 @@ object BoundingBox {
       //val mysolution = shapeses.reduceLeft((rect1, rect2) => {
       //  rect1.asInstanceOf[edu.luc.cs.laufer.cs473.shapes.Rectangle].width })
       
-      for (elem <- shapeses) elem match{ //pattern match the shapes to Rectangles and print width
-        case (edu.luc.cs.laufer.cs473.shapes.Rectangle(width,height)) => println(width) }
+      for (elem <- shapeses) elem match{ //pattern match the shapes to Rectangles and print (width,height)
+        case (edu.luc.cs.laufer.cs473.shapes.Rectangle(width,height)) => println(width,height) }
       
-      for (elem <- shapeses) elem match{ //pattern match the shapes to Rectangles and print height
-        case (edu.luc.cs.laufer.cs473.shapes.Rectangle(width,height)) => println(height) }
-
       Location(0,0,Rectangle(1,1))
     }
 
