@@ -10,25 +10,18 @@ object BoundingBox {
     }
     case Ellipse(width, height) =>
       Location(-(width), -(height), new Rectangle(width * 2, height * 2))
-case Group(multishapes @ _*) => {
+    case Group(multishapes @ _*) => {
       //I'm doing it wrong: need to only process two at a time instead of processing globally
-      val boxes = multishapes.toList.map (boundingBox(_)) //map Group items to BB
+      val boxes = multishapes.toList.map(boundingBox(_)) //map Group items to BB
       
-      val minx = boxes.map(_.x).reduceLeft((x1,x2) => x1.min(x2)) //map and reduce x val's to get min
-      
-      val miny = boxes.map(_.y).reduceLeft((y1,y2) => y1.min(y2)) //map and reduce y val's to get min
-      
-      val shapeses = boxes.map(_.shape) //map BB's to their shapes
-      //need recursive function or reduceLeft function to reduce shapeses to a single boundingBox
-      //shapeses.reduceLeft((sh1: Shape, sh2: Shape) =>  )
-      
-      
-      //val mysolution = shapeses.reduceLeft((rect1, rect2) => {
-      //  rect1.asInstanceOf[edu.luc.cs.laufer.cs473.shapes.Rectangle].width })
-      //for (elem <- shapeses) elem match{ //pattern match the shapes to Rectangles and print width
-        //case (edu.luc.cs.laufer.cs473.shapes.Rectangle(width,height)) => println(width,height) }
-      
-      Location(0,0,Rectangle(1,1))
+      val result = boxes.reduceLeft(shapeA, shapeB) => {
+        val minx = (shape1.x).min(shape2.x)
+        val miny = (shape1.y).min(shape2.x)
+        val rectWidth = (shape1.x + shape1.width).max(shape2.x + shape2.width)
+        val rectHeight = (shape1.y + shape1.height).max(shape2.x + shape2.height)
+        val result = Location(minx, miny, Rectangle(rectWidth, rectHeight))
+      }
+
     }
 
     // TODO add missing cases (see test fixtures)
