@@ -14,12 +14,12 @@ object BoundingBox {
       //I'm doing it wrong: need to only process two at a time instead of processing globally
       val boxes = multishapes.toList.map(boundingBox(_)) //map Group items to BB
       
-      val result = boxes.reduceLeft(shapeA, shapeB) => {
-        val minx = (shape1.x).min(shape2.x)
-        val miny = (shape1.y).min(shape2.x)
-        val rectWidth = (shape1.x + shape1.width).max(shape2.x + shape2.width)
-        val rectHeight = (shape1.y + shape1.height).max(shape2.x + shape2.height)
-        val result = Location(minx, miny, Rectangle(rectWidth, rectHeight))
+      val result = boxes reduceLeft(_, _) => {
+        val minx = (_.x).min(_.x)
+        val miny = (_.y).min(_.x)
+        val rectWidth = (_.x + _.shape.width).max(b.x + b.shape.width)
+        val rectHeight = (a.y + a.shape.height).max(b.x + b.shape.height)
+        Location(minx, miny, Rectangle(rectWidth, rectHeight))
       }
 
     }
