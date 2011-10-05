@@ -35,8 +35,8 @@ object BoundingBox {
         val rectb = b match{
           case (edu.luc.cs.laufer.cs473.shapes.Location(_, _, Rectangle(w,h))) => Rectangle(w,h)
         }
-        val rectWidth = (ax + recta.width).max(bx + rectb.width)
-        val rectHeight = (ay + recta.height).max(bx + rectb.height)
+        val rectWidth = ((ax + recta.width).max(bx + rectb.width)-minx)
+        val rectHeight = ((ay + recta.height).max(bx + rectb.height)-miny)
         Location(minx, miny, Rectangle(rectWidth, rectHeight))
       })
       //Location(1, 1, Rectangle(1, 1))
