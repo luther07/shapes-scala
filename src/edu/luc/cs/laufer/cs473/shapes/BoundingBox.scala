@@ -14,14 +14,34 @@ object BoundingBox {
       //I'm doing it wrong: need to only process two at a time instead of processing globally
       val boxes = multishapes.toList.map(boundingBox(_)) //map Group items to BB
       
-      val result = boxes.reduceLeft((a:Shape, b:Shape) => {
-        val minx = (a.x).min(b.x)
-        val miny = (a.y).min(b.x)
-        val rectWidth = (a.x + a.shape.width).max(b.x + b.shape.width)
-        val rectHeight = (a.y + a.shape.height).max(b.x + b.shape.height)
+      val result = boxes.reduceLeft((a:Shape, b:Shape) => { 
+        val ax = a match{
+          case (edu.luc.cs.laufer.cs473.shapes.Location(x, _, Rectangle(_,_))) => x 
+        }
+        val ay = a match{
+          case (edu.luc.cs.laufer.cs473.shapes.Location(_, y, Rectangle(_,_))) => y
+        }
+        val bx = b match{
+          case (edu.luc.cs.laufer.cs473.shapes.Location(x, _, Rectangle(_,_))) => x
+        }
+        val by = b match{
+          case (edu.luc.cs.laufer.cs473.shapes.Location(_, y, Rectangle(_,_))) => y
+        }
+        val minx = (ax).min(bx)
+        val miny = (ay).min(by)
+        val recta = a match{
+          case (edu.luc.cs.laufer.cs473.shapes.Location(_, _, Rectangle(w,h))) => Rectangle(w,h)
+        }
+        val rectb = b match{
+          case (edu.luc.cs.laufer.cs473.shapes.Location(_, _, Rectangle(w,h))) => Rectangle(w,h)
+        }
+        val rectWidth = (ax + recta.width).max(bx + rectb.width)
+        val rectHeight = (ay + recta.height).max(bx + rectb.height)
         Location(minx, miny, Rectangle(rectWidth, rectHeight))
       })
-
+      //Location(1, 1, Rectangle(1, 1))
+      result
+      //Location(-50, -30, Rectangle(100, 70))
     }
 
     // TODO add missing cases (see test fixtures)
