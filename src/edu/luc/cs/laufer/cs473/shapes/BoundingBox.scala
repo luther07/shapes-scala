@@ -17,23 +17,29 @@ object BoundingBox {
       val result = boxes.reduceLeft((a:Shape, b:Shape) => { 
         val ax = a match{
           case (edu.luc.cs.laufer.cs473.shapes.Location(x, _, Rectangle(_,_))) => x 
+          case _ => -1234
         }
         val ay = a match{
           case (edu.luc.cs.laufer.cs473.shapes.Location(_, y, Rectangle(_,_))) => y
+          case _ => -1234
         }
         val bx = b match{
           case (edu.luc.cs.laufer.cs473.shapes.Location(x, _, Rectangle(_,_))) => x
+          case _ => -1234
         }
         val by = b match{
           case (edu.luc.cs.laufer.cs473.shapes.Location(_, y, Rectangle(_,_))) => y
+          case _ => -1234
         }
         val minx = (ax).min(bx)
         val miny = (ay).min(by)
         val recta = a match{
           case (edu.luc.cs.laufer.cs473.shapes.Location(_, _, Rectangle(w,h))) => Rectangle(w,h)
+          case _ => Rectangle(-1234,-1234)
         }
         val rectb = b match{
           case (edu.luc.cs.laufer.cs473.shapes.Location(_, _, Rectangle(w,h))) => Rectangle(w,h)
+          case _ => Rectangle(-1234,-1234)
         }
         val rectWidth = ((ax + recta.width).max(bx + rectb.width)-minx)
         val rectHeight = ((ay + recta.height).max(bx + rectb.height)-miny)
