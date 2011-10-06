@@ -11,9 +11,12 @@ object BoundingBox {
     case Ellipse(width, height) =>
       Location(-(width), -(height), new Rectangle(width * 2, height * 2))
     case Group(multishapes @ _*) => {
-      //I'm doing it wrong: need to only process two at a time instead of processing globally
       val boxes = multishapes.toList.map(boundingBox(_)) //map Group items to BB
       
+      /* The function passed to reduceLeft must process two shapes at a time,
+       * returning the  bounding box on those two shapes. The reduceLeft function
+       * will apply the function repeatedly on all items in boxes.
+       */
       val result = boxes.reduceLeft((a:Shape, b:Shape) => { 
         val ax = a match{
           case (edu.luc.cs.laufer.cs473.shapes.Location(x, _, Rectangle(_,_))) => x 
