@@ -17,7 +17,7 @@ object BoundingBox {
        * returning the  bounding box on those two shapes. The reduceLeft function
        * will apply the function repeatedly on all items in boxes.
        */
-      val result = boxes.reduceLeft((a:Shape, b:Shape) => { 
+      val result = boxes.reduceLeft((a:Shape, b:Shape) => {
         val ax = a match{
           case (edu.luc.cs.laufer.cs473.shapes.Location(x, _, Rectangle(_,_))) => x 
           case _ => -1234
@@ -37,11 +37,11 @@ object BoundingBox {
         val minx = (ax).min(bx)
         val miny = (ay).min(by)
         val recta = a match{
-          case (edu.luc.cs.laufer.cs473.shapes.Location(_, _, Rectangle(w,h))) => Rectangle(w,h)
+          case (edu.luc.cs.laufer.cs473.shapes.Location(_, _, r @ Rectangle(_,_))) => r
           case _ => Rectangle(-1234,-1234)
         }
         val rectb = b match{
-          case (edu.luc.cs.laufer.cs473.shapes.Location(_, _, Rectangle(w,h))) => Rectangle(w,h)
+          case (edu.luc.cs.laufer.cs473.shapes.Location(_, _, r @ Rectangle(_,_))) => r
           case _ => Rectangle(-1234,-1234)
         }
         val rectWidth = ((ax + recta.width).max(bx + rectb.width)-minx)
