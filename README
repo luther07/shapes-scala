@@ -1,3 +1,8 @@
 Test README for fork of shapes-scala.
-9/9/11-fetched changes from upstream, and merged upstream/master. 
-9/29/11-turning in assignment, only partially complete, still working on it.
+9/9/11 - fetched changes from upstream, and merged upstream/master. 
+
+9/29/11 - turning in assignment, only partially complete, still working on it.
+
+10/06/11 - added default cases to match expressions in BoundingBox.scala in order to prevent MatchError exceptions.
+         - when using pattern matching on cases classes you should always make sure that all cases are covered even if
+           it means adding default case [Odersky, Spoon, Venners: 273] 
