@@ -26,7 +26,18 @@ class TestBoundingBox extends FunSuite {
   testBoundingBox("simple ellipse", simpleEllipse, -50, -30, 100, 60)
   testBoundingBox("simple rectangle", simpleRectangle, 0, 0, 80, 120)
   testBoundingBox("simple location", simpleLocation, 70, 30, 80, 120)
-//  testBoundingBox("basic group", basicGroup, -50, -30, 100, 70)
-//  testBoundingBox("simple group", simpleGroup, 150, 50, 350, 300)
-//  testBoundingBox("complex group", complexGroup, 30, 80, 470, 320)
+  testBoundingBox("basic group", basicGroup, -50, -30, 100, 70)
+  testBoundingBox("simple group", simpleGroup, 150, 70, 350, 280)
+  testBoundingBox("groupOne", groupOne, -200, -200, 101, 101) 
+  testBoundingBox("groupTwo", groupTwo, -200, -200, 101, 301)
+  testBoundingBox("groupThree", groupThree, -200, -200, 301, 301)
+  testBoundingBox("groupFour", groupFour, -200, -200, 301, 101)
+  testBoundingBox("groupFive", groupFive, -200, 100, 101, 101)
+  testBoundingBox("groupSix", groupSix, -200, 100, 301, 101)
+  testBoundingBox("groupSeven", groupSeven, 100, 100, 101, 101)
+  testBoundingBox("groupEight", groupEight, 100, -200, 101, 301)
+  testBoundingBox("groupNine", groupNine, 100, -200, 101, 101)
+
+  
+  testBoundingBox("complex group", complexGroup, 30, 60, 470, 320)
 }
