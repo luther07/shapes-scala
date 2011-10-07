@@ -28,4 +28,48 @@ object TestFixtures {
 	)),
     Rectangle(100, 200)
 ))
+
+  val groupOne = Group(
+    Location(-200, -200, Rectangle(1,1)),
+        Location(-100, -100, Rectangle(1,1))
+  )
+
+  val groupTwo = Group(
+    Location(-200, -200, Rectangle(1,1)),
+        Location(-100, 100, Rectangle(1,1))
+  )
+
+  val groupThree = Group(
+    Location(-200, -200, Rectangle(1,1)),
+        Location(100, 100, Rectangle(1,1))
+  )
+
+  val groupFour = Group(
+    Location(-200, -200, Rectangle(1,1)),
+        Location(100, -100, Rectangle(1,1))
+  )
+
+  val groupFive = Group(
+    Location(-200, 200, Rectangle(1,1)),
+        Location(-100, 100, Rectangle(1,1))
+  )
+  val groupSix = Group(
+    Location(-200, 200, Rectangle(1,1)),
+        Location(100, 100, Rectangle(1,1))
+  )
+
+  val groupSeven = Group(
+    Location(200, 200, Rectangle(1,1)),
+        Location(100, 100, Rectangle(1,1))
+  )
+  
+  val groupEight = Group(
+    Location(200, -200, Rectangle(1,1)),
+        Location(100, 100, Rectangle(1,1))
+  )
+
+  val groupNine = Group(
+    Location(200, -200, Rectangle(1,1)),
+        Location(100, -100, Rectangle(1,1))
+  )
 }
