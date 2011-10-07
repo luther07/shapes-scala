@@ -15,7 +15,7 @@ object BoundingBox {
       
       /* The function passed to reduceLeft must process two shapes at a time,
        * returning the  bounding box on those two shapes. The reduceLeft function
-       * will apply the function repeatedly on all items in boxes.
+       * will apply the function repeatedly on all shapes list "boxes".
        */
       val result = boxes.reduceLeft((a:Shape, b:Shape) => {
         val ax = a match{
@@ -48,9 +48,7 @@ object BoundingBox {
         val rectHeight = ((ay + recta.height).max(by + rectb.height)+(-miny))
         Location(minx, miny, Rectangle(rectWidth, rectHeight))
       })
-      //Location(1, 1, Rectangle(1, 1))
       result
-      //Location(-50, -30, Rectangle(100, 70))
     }
 
     // TODO add missing cases (see test fixtures)
