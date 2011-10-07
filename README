@@ -6,3 +6,8 @@ Test README for fork of shapes-scala.
 10/06/11 - added default cases to match expressions in BoundingBox.scala in order to prevent MatchError exceptions.
          - when using pattern matching on cases classes you should always make sure that all cases are covered even if
            it means adding default case [Odersky, Spoon, Venners: 273] 
+
+10/07/11 - I did make corrections to the tests in TestBoundingBox.scala, per the professor's repo
+         - I added extra test fixtures and tested them
+         - I made some changes to my case pattern match for Group
+         - all tests are now passing
